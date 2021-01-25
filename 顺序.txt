@@ -13,6 +13,9 @@
 // 文件处理中间件
 npm i multer --save
 
+// 富文本编辑器
+npm install --save vue2-editor
+
 
 断言 as
 字符串签名索引 [x:string]: any
