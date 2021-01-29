@@ -17,7 +17,12 @@
       </el-form-item>
       <el-form-item label="详情">
         <!-- <el-input v-model="model.body"></el-input>   -->
-        <vue-editor v-model="model.body"></vue-editor>
+        <vue-editor
+          useCustomImageHandler 
+          v-model="model.body"
+          @image-added="handleImageAdded"
+        >
+        </vue-editor>
       </el-form-item>
       <el-form-item label="操作">
         <el-button type="primary" native-type="submit">保存</el-button>
@@ -45,6 +50,34 @@ export default {
     }
   },
   methods: {
+    async handleImageAdded(file, Editor, cursorLocation, resetUploader) {
+      // An example of using FormData
+      // NOTE: Your key could be different such as:
+      // formData.append('file', file)
+      // 一般上传json数据，这里上传文件所以要提交表单数据。
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const res =  await this.$http.post('upload', formData);
+      const url = res.data.url; // Get url from response
+      // 利用光标位置，url给自己定义的文件上传
+      Editor.insertEmbed(cursorLocation, "image", url);
+      resetUploader();
+
+      // await axios({
+      //   url: "https://fakeapi.yoursite.com/images",
+      //   method: "POST",
+      //   data: formData
+      // })
+      //   .then(result => {
+      //     let url = result.data.url; // Get url from response
+      //     Editor.insertEmbed(cursorLocation, "image", url);
+      //     resetUploader();
+      //   })
+      //   .catch(err => {
+      //     console.log(err);
+      //   });
+    },
     async save() {
       let res;
       if (this.id) {

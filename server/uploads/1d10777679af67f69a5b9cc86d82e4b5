@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<style>
+/* CSS Document */
+body{
+	margin: 100px auto 0 100px;
+	display: flex;
+}
+.box1{
+	width: 100px;
+	height: 100px;
+	background: red;	
+}
+.box2{
+	width: 100px;
+	height: 100px;
+	background: blue;
+}
+.box3{
+	width: 100px;
+	height: 100px;
+	background: purple;
+}
+.box4{
+	width: 100px;
+	height: 100px;
+	background: #20880B;
+}
+.box5{
+	width: 100px;
+	height: 100px;
+	background: pink;
+}
+.box1:hover{
+	background: #C1841F;
+}
+.box1:hover~.box2{
+	background: #AB520E;
+}
+.box1:hover~.box3{
+	background: #15B7AA;
+}
+.box1:hover~.box4{
+	background: #690A7E;
+}
+.box1:hover~.box5{
+	background: #B0CB1B;
+}
+/*-----~匹配选择器，匹配到跟box1下面同级的元素----*/
+</style>
+<meta charset="utf-8">
+<title>如何使用hover同时让多个元素发生变化</title>
+	<link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+	<div class="box4"></div>
+	<div class="box5"></div>
+</body>
+</html>

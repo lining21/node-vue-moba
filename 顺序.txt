@@ -1,3 +1,6 @@
+JSON_handle
+FE web前端助手
+
 1.mkdir server
   npm init -y
 2.vue create admin
@@ -16,141 +19,22 @@ npm i multer --save
 // 富文本编辑器
 npm install --save vue2-editor
 
+// 散列 密码加密
+npm i bcrypt
 
-断言 as
-字符串签名索引 [x:string]: any
-数字签名  [x:number]: number
+// express node token存取验证模块
+npm i jsonwebtoken
 
-interface Person {
-	name?: string;
-	readonly id: number;
-}
+// http-assert 测试用于
+npm i http-assert
 
-let ro: ReadonlyArray<number> = a;
 
-a = ro as number[]; 断言来修改此数组；
+web端
+1. ‘工具样式’概念 和 sass（scss）
+1. 样式重叠
+2.网站色彩和字体定义（colors，text）
+3.通用flex布局样式定义（flex）
+3.常用边距定义（margin， padding）
+4.首页顶部轮播图片（vue swiper）  工具类 自定义样式类
 
-1.类型推断：
-let num = 1;
-num = 'a';
-let arr1 = [1,2,3];
-let arr2 = [1,'a'];
-let o = {
-	name: 'mark',
-	age: 29
-}
-o.age
-o.ee //baocuo
-
-let {age} = o;
-let {age, df} = o; // baocun
-解构也可以推断；
-
-2.assertion 类型断言，用于覆盖类型腿短
-
-const person = {};
-person.name = 'mark'; // caocuo
-
-interface {
-	name: string;
-	age: number;
-	sex: string
-}
-const person = {} as Person;
-const person = <Person>{}  //两种方式
-person.name = 'mark';
-
-但是慎用断言，断言丧失了接口的约定
-
-善用断言
-function handler（event：Event）{
-	
-}
-
-interface   TS默认是全局变量
-export 文件中 任何一个地方出现一个export 就丧失全局特性；
-
-1.只进行结构匹配 不进行 名称匹配
-interface ship匹配 不管名字叫啥 里边的东西一样 就相等；
-鸭式辩型法 只要描述的是鸭子就可以，不用非得叫鸭子；
-
-2.对字面量做【全面检查】 就是里边有的我检查 没有的就放过
-interface Animal {
-	height: string;
-	weight: string;
-}
-
-const response = {
-weight: '5kg',
-height: '10cm',
-catrgory: 'cat'
-}
-
-let cat:Animal = response;
-
-let cat:Animal = {
-weight: '5kg',
-height: '10cm',
-catrgory: 'cat'
-}; // baocuo
-3. 可选参 字符串索引 [x:string]: any; 有了这个可以加任何东西；
-
-interface Person {
-	name: String;
-	nationality?: string;
-	[x:string]: any;
-}
-
-let x:Person;
-x.xx = '';
-x.yy = 'sdf';
-x.zz = 'dfsdf';
-x.nationality = '111';
-
-4.开放式 重复声明
-interface Person {
-	name: String;
-	nationality?: string;
-}
-
-interface Person {
-	age: number
-}
-let per: Person;
-其他地方可以再添加属性再用；
-
-export interface Person {
-	weight: string;
-}
-let per: Person;
-per.dd
-
-5.交叉类型 extends  能力很像
-interface Person {
-	age: string;
-		weight:number;
-}
-
-interface Animal {
-	height: string;
-	weight: string;
-}
-
-let per: Person & Animal; per变量有两个interface的属性
-per.
-weight 是never类型
-
-interface Animal {
-	height: string;
-	weight: string;
-}
-
-interface Person extends Animal{ // 这里会报错
-	age: string;
-	weight: string;
-}
-
-6.readlony;
-
-declare enum 声明全局变量
-interface和type 是默认全局
+npm i -D sass-loader

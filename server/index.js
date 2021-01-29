@@ -3,6 +3,8 @@ const express = require('express');
 
 const app = express();
 
+app.set('secret', '1231231');
+
 // 解决跨域
 app.use(require('cors')());
 // 用于post请求的req.body
