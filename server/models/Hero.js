@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const schema = new mongoose.Schema({
   name: {type: String},
   avatar: {type: String},
+  banner: {type: String},
   // 称号
   title: {type: String},
   categories: [{type: mongoose.SchemaTypes.ObjectId, ref: 'Category'}],
@@ -15,6 +16,8 @@ const schema = new mongoose.Schema({
   skills: [{
     icon: {type: String},
     name: {type: String},
+    delay: {type: String},
+    cost: {type: String},
     description: {type: String},
     tips: {type: String}
   }],
@@ -37,4 +40,6 @@ const schema = new mongoose.Schema({
   }]
 })
 
-module.exports = mongoose.model('Hero', schema)
+// 定义模型的时候，定义一个模型名称 再定义一个表结构，其实存到数据库里
+// 数据真正存到数据库的集合里的名字 也就是表名，是自己默认生成 一般是模型的复数形式，有可能就把hero变成了heros
+module.exports = mongoose.model('Hero', schema, 'heroes')

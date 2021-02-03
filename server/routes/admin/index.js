@@ -48,7 +48,7 @@ module.exports = app => {
     // 如果设置上关联查询选项，parent本身只有id，
     // 设置上这个选项后，就可以查到这个id下对应的所有信息
     // 并以{}的形式返回，其中parent为其中一项，还包含_id等；
-    const items = await req.Model.find().setOptions(queryOptions).limit(10);
+    const items = await req.Model.find().setOptions(queryOptions).limit(100);
     res.send(items);
   });
 // 资源详情

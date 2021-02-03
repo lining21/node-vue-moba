@@ -35,6 +35,112 @@ web端
 2.网站色彩和字体定义（colors，text）
 3.通用flex布局样式定义（flex）
 3.常用边距定义（margin， padding）
-4.首页顶部轮播图片（vue swiper）  工具类 自定义样式类
+4.首页顶部轮播图片（vue swiper）  工具类 自定义样式类  npm install vue-awesome-swiper --save
 
 npm i -D sass-loader
+
+5.使用精灵图片（sprite）  样式解耦合
+6.使用字体图标（iconfont）
+7.卡片组件（card）
+8.列表卡片组件（list-card nav swiper）
+
+首页新闻资讯-数据录入（+后台bug修复）
+首页新闻资讯-数据接口
+首页新闻资讯-界面展示
+首页英雄列表-提取官网数据
+首页英雄列表-录入数据
+首页英雄列表-界面展示
+新闻详情页
+英雄详情页
+
+$$('.news_list .title').map(el => el.innerHTML).slice(5)
+
+npm i require-all --save
+防止模块未引用导致报错
+
+npm i dayjs
+
+import { api, api2, api3 } from '../../api';
+methods： {
+	createAwardProcessApi(certificateNumber) {
+      api({params}).then（res=>{
+		this.laoding = false;
+		this.$message('chenggong');
+		api2({params}).then（res=>{
+			api3({params}).then（res=>{
+			
+			})
+		})
+	  }）.catch(err=>{
+		this.laoding = false;
+		this.$message('shibai');
+	  })
+	},
+	createAwardProcessApi(certificateNumber) {
+      return api({params}).then（res=>{
+		this.laoding = false;
+		this.$message('chenggong');
+	  }）.then(res=>{
+	  return api2({res.dad}) {
+	  
+	  }.then(res=>{
+	  return api3({res.dad}) {
+	  }.then(res=>{
+	  
+	  })
+	  .catch(err=>{
+		this.laoding = false;
+		this.$message('shibai');
+	  })
+	},
+}
+
+	async createAwardProcessApi(certificateNumber) {
+	try{
+		const res = await api({params});
+				this.laoding = false;
+		this.$message('chenggong');
+	}catch(e) {
+			this.laoding = false;
+			this.$message('shibai');
+		}
+
+	}
+	
+	
+	async createAwardProcessApi(certificateNumber) {
+
+		const res = await api({params});
+		const res2 = await api2({res.123123});
+		const res3 = await api3({res2.3123});
+	}
+	
+	async createAwardProcessApi(certificateNumber) {
+		const [err1, data1] = await this.$awaitWrap(api({params}));
+		if (data1) {
+			const [err2, data2] = await this.$awaitWrap(api2({data1.123123}));
+			if (data2) {
+				const [err3, data3] = await this.$awaitWrap(api3({data1.123123}));
+			}
+		}
+	}
+	
+	// 获取英雄列表跟list
+	$$('.hero-nav > li').map((li, i) => {
+    return {
+       name: li.innerText,
+        heroes: $$('li', $$('.hero-list')[i])
+}
+})
+
+$$('.hero-nav > li').map((li, i) => {
+    return {
+       name: li.innerText,
+        heroes: $$('li', $$('.hero-list')[i]).map(el =>{
+return{
+    name: $$('h3', el)[0].innerHTML,
+    avatar: $$('img', el)[0].src
+}
+})
+}
+})

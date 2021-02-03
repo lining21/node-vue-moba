@@ -2,6 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Main from '../views/Main.vue';
+import Article from '../views/Article.vue';
+import Hero from '../views/Hero.vue';
 
 Vue.use(VueRouter);
 
@@ -12,7 +14,13 @@ const routes = [
     component: Main,
     children: [
       { path: '/', name: 'home', component: Home },
+      // props:true 所有路由参数 映射为组件参数；
+      { path: '/articles/:id', name: 'article', component: Article, props:true },
+      // { path: '/heroes/:id', name: 'hero', component: Hero, props:true },
     ],
+  },
+  {
+    path: '/heroes/:id', name: 'hero', component: Hero, props:true
   },
   {
     path: '/about',

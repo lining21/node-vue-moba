@@ -1,0 +1,23 @@
+{
+  "id": "2357599",
+  "name": "123",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5428446",
+      "name": "menu",
+      "font_class": "menu",
+      "unicode": "e6eb",
+      "unicode_decimal": 59115
+    },
+    {
+      "icon_id": "17579005",
+      "name": "nav_hero",
+      "font_class": "icon_nav_hero",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    }
+  ]
+}

@@ -26,6 +26,10 @@ a {
   color: #999;
 }
 
+p {
+  line-height: 1.5em;
+}
+
 @each $colorKey, $color in $colors {
   .text-#{$colorKey} {
     color: $color;
@@ -34,6 +38,14 @@ a {
   .bg-#{$colorKey} {
     background-color: $color;
   }
+}
+
+// text overflow
+.text-ellipsis {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 // text each是循环
@@ -64,6 +76,10 @@ a {
 
 .flex-column {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 @each $key, $value in $flex-jc {
@@ -130,11 +146,52 @@ a {
 
 // nav
 .nav {
+  display: flex;
   .nav-item {
     border-bottom: 3px solid transparent;
     padding-bottom: 0.2rem;
     &.active {
-      border-bottom: 3px solid #fff;
+      color: map-get($colors, "primary");
+      border-bottom-color: map-get($colors, "primary");
     }
+  }
+  &.nav-inverse {
+    .nav-item {
+      color: map-get($colors, "white");
+      &.active {
+        border-bottom-color: map-get($colors, "white");
+      }
+    }
+  }
+}
+
+//sprite
+.sprite {
+  // 0 0 左上角对齐
+  background: url(../images/icon/icon.png) no-repeat 0 0;
+  // 背景尺寸 手机端750 一般px是一半 375px
+  background-size: 28.8462rem;
+  display: inline-block;
+  &.sprite-news {
+    background-position: 63.546% 15.517%;
+    width: 1.7692rem;
+    height: 1.5385rem;
+  }
+  &.sprite-story {
+    background-position: 63.546% 15.517%;
+    width: 1.7692rem;
+    height: 1.5385rem;
+  }
+  &.sprite-arrow {
+    background-position: 38.577% 52.076%;
+    width: 0.7692rem;
+    height: 0.7692rem;
+  }
+}
+
+// borders
+@each $dir in (top, right, bottom, left) {
+  .border-#{$dir} {
+    border-#{$dir}: 1px solid $border-color;
   }
 }

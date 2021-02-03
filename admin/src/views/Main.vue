@@ -57,7 +57,7 @@
         <span>王小虎</span>
       </el-header>
       
-      <el-main>
+      <el-main :key="$route.path">
         <router-view/>
       </el-main>
     </el-container>
